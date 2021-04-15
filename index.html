@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="eel.js"></script>
+</head>
+<body>
+    <div class="box">
+        <form action="#">
+            <input type="method" id="method" placeholder="Method" name=textM>
+            <input type=text id="login" placeholder="Login" name=textField>
+            <input type="submit" id="btn" value="register" onClick="getData()">
+        </form>
+    </div>
+
+    <script>
+        let btn = document.querySelector("#btn");
+        btn.addEventListener("click", sendData);
+
+        async function sendData() {
+            let login = document.forms[0].textField.value
+            let method = document.forms[0].textM.value
+
+            await eel.recv_data(login, method);
+        }
+    </script>
+</body>
+</html>
